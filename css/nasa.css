@@ -1,0 +1,117 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+body{
+	background-color: #252525;
+}
+/*   ASIDE   */
+#aside img {
+	width: 150px;
+	height: 150px;
+}
+img.rover-img{
+	width: 24%;
+	border: 1px solid #83e6d8;
+	padding: 1%;
+}
+.button {
+	height: 50px;
+	width: 50px;
+}
+.btn{
+	margin-top: 20px;
+	left: 50%;
+    position: relative;
+    margin-left: -82px;
+    background: #93642a;
+    color: #e3ddd8;
+    font-size: 22px;
+}
+h1{
+	text-align: right;
+	color: #484545;
+}
+h4 {
+	color: #fff;
+}
+#name,
+#total_photos,
+#max_sol,
+#landing_date,
+#launch_date{
+	color: #83e6d8;
+}
+form{
+    color: #b3642a;	
+}
+.rover {
+	display: inline-block;
+	border: 2px solid transparent;
+}
+.rover.active {
+	border: 2px solid #83e6d8;
+}
+input[type=checkbox] {
+    margin: 4px 4px;
+}
+div#selected_sol{
+	color: #83e6d8;
+}
+
+
+
+
+
+
+
+
+
+
+/* padding-bottom and top for image */
+.mfp-no-margins img.mfp-img {
+	padding: 0;
+}
+/* position of shadow behind the image */
+.mfp-no-margins .mfp-figure:after {
+	top: 0;
+	bottom: 0;
+}
+/* padding for main container */
+.mfp-no-margins .mfp-container {
+	padding: 0;
+}
+
+
+/* 
+
+for zoom animation 
+uncomment this part if you haven't added this code anywhere else
+
+*/
+/*
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.3s ease-out; 
+	-moz-transition: all 0.3s ease-out; 
+	-o-transition: all 0.3s ease-out; 
+	transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+		opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+		opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container, 
+.mfp-with-zoom.mfp-removing.mfp-bg {
+	opacity: 0;
+}
+*/
+
