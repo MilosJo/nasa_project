@@ -32,6 +32,7 @@ img.rover-img{
 h1{
 	text-align: right;
 	color: #484545;
+	margin-top: 10px
 }
 h4 {
 	color: #fff;
@@ -55,6 +56,9 @@ form{
 }
 input[type=checkbox] {
     margin: 4px 4px;
+}
+input[type=range] {
+    display: inline-block;
 }
 div#selected_sol{
 	color: #83e6d8;
