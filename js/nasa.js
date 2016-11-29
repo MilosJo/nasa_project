@@ -69,7 +69,7 @@ $('.btn').on('click', function(){
 	getRoverImages(rover, function(photos) {
 		$("#container").html('');
 		photos.forEach(function(photo, index) {
-			if(index > 15) { 
+			if(index > 30) { 
 				return;
 			}
 			$('#container').append('<a class="rover-img-link" href="'+ photo.img_src + '"><img class="rover-img" src="' + photo.img_src + '" /></a>');
