@@ -11,6 +11,12 @@ body{
 	width: 150px;
 	height: 150px;
 }
+@media(max-width: 768px){
+	#aside img {
+		width: 150px;
+		height: 150px;
+	}	
+}
 img.rover-img{
 	width: 14%;
 	border: 1px solid #83e6d8;
