@@ -6,8 +6,8 @@ var cameras = {
 function getRoverData(name, callback){
   $.ajax({
     url:'https://api.nasa.gov/mars-photos/api/v1/manifests/'+ name.toLowerCase()+'?api_key=Gr3St2r31hrlUI1kMV88Xi2OLbQLIK5RKRmPeTDc',
-  method:'GET',
-  type: 'jsonp',
+	method:'GET',
+	type: 'jsonp',
 }).done(function(res){
 		callback(res);
 		showCameras(name);
