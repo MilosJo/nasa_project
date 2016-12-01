@@ -3,23 +3,24 @@ var cameras = {
 	opportunity:['FHAZ', 'RHAZ', 'PANCAM', 'MINITES', 'NAVCAM'],
 	spirit:['FHAZ', 'RHAZ', 'PANCAM', 'MINITES', 'NAVCAM']
 };
+
 function getRoverData(name, callback){
-  $.ajax({
-    url:'https://api.nasa.gov/mars-photos/api/v1/manifests/'+ name.toLowerCase()+'?api_key=Gr3St2r31hrlUI1kMV88Xi2OLbQLIK5RKRmPeTDc',
-	method:'GET',
-	type: 'jsonp',
+	$.ajax({
+	    url:'https://api.nasa.gov/mars-photos/api/v1/manifests/'+ name.toLowerCase()+'?api_key=Gr3St2r31hrlUI1kMV88Xi2OLbQLIK5RKRmPeTDc',
+		method:'GET',
+		type: 'jsonp',
 }).done(function(res){
 		callback(res);
 		showCameras(name);
 	});
 };
 
-
-
 function getRoverImages(name, callback) {
 	var sol = $("#sol-selector").val();
+	var camera = $('.camera:checked').val();
+	var cameraParams = 'camera=' + camera;
   	$.ajax({
-    	url:'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ name.toLowerCase()+'/photos?sol='+ sol +'&api_key=Gr3St2r31hrlUI1kMV88Xi2OLbQLIK5RKRmPeTDc',
+    	url:'https://api.nasa.gov/mars-photos/api/v1/rovers/'+ name.toLowerCase()+'/photos?sol='+ sol +'&' + cameraParams + '&api_key=Gr3St2r31hrlUI1kMV88Xi2OLbQLIK5RKRmPeTDc',
 	  	method:'GET',
 	  	type: 'jsonp',
 	}).done(function(res){
@@ -29,10 +30,11 @@ function getRoverImages(name, callback) {
 
 function showCameras(name){
 	$('#cameras').empty();
-	for(var i =0; i < cameras[name].length; i++){
+	for(var i = 0; i < cameras[name].length; i++){
 		var span = $('<span>');
-		var input = $('<input type="checkbox">');
-		input.val(cameras[name][i]);
+		var input = $('<input name="camera" class="camera" type="radio">');
+		input.val(cameras[name][i].toLowerCase());
+
 		span.text(cameras[name][i]);
 		$('#cameras').append(input);
 		$('#cameras').append(span);
@@ -47,17 +49,15 @@ $(".rover").on('click', function() {
 });
 
 function handleResults(res){
-
-  $('#total_photos').text(res.photo_manifest.total_photos);
-  $('#max_sol').text(res.photo_manifest.max_sol);
-  $('#landing_date').text(res.photo_manifest.landing_date);
-  $('#launch_date').text(res.photo_manifest.launch_date);
-  $('#name').text(res.photo_manifest.name);
-  $("#sol-selector").attr('max', res.photo_manifest.max_sol);
+	$('#total_photos').text(res.photo_manifest.total_photos);
+	$('#max_sol').text(res.photo_manifest.max_sol);
+	$('#landing_date').text(res.photo_manifest.landing_date);
+	$('#launch_date').text(res.photo_manifest.launch_date);
+	$('#name').text(res.photo_manifest.name);
+	$("#sol-selector").attr('max', res.photo_manifest.max_sol);
 }
 
 getRoverData('curiosity',handleResults);
-
 
 var btn = $('<button class="btn">');
 btn.text('Fetch pictures');
@@ -81,7 +81,7 @@ $('.btn').on('click', function(){
 			fixedContentPos: true,
 			mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
 			image: {
-					verticalFit: true
+				verticalFit: true
 			},
 			zoom: {
 				enabled: true,
@@ -92,7 +92,7 @@ $('.btn').on('click', function(){
 });
 	
 $("#sol-selector").on('change', function() {
-	$("#selected_sol").text($(this).val())
+	$("#selected_sol").text($(this).val());
 })
 
 

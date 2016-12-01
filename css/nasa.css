@@ -60,10 +60,8 @@ form{
 .rover.active {
 	border: 2px solid #83e6d8;
 }
-input[type=checkbox] {
+input[type=radio] {
     margin: 4px 4px;
-}
-input[type=range] {
     display: inline-block;
 }
 div#selected_sol{
